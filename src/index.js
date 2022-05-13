@@ -1,13 +1,42 @@
 import _ from 'lodash';
 import './style.css';
 
-function component() {
-    const element = document.createElement('div');
-
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-    element.classList.add('hello');
-
-    return element;
+const arrTasks = [
+  {
+    description: 'forth',
+    completed: false,
+    index: 3,
+  },
+  {
+    description: 'first',
+    completed: false,
+    index: 0,
+  },
+  {
+    description: 'thirth',
+    completed: false,
+    index: 2,
+  },
+  {
+    description: 'second',
+    completed: false,
+    index: 1,
+  },
+];
+const displayTasks = () => {
+  arrTasks.sort((a, b) => a.index - b.index);
+  const tasks = document.getElementById('tasks');
+  const everyTasks = document.createElement('div');
+  everyTasks.classList.add('tasksss');
+  arrTasks.forEach((task) => {
+    const everyTask = `<div class="task"><input type="checkbox" class="taskCheck"><input type="text" class="taskInput" name="task" value="${task.description}"><i class="fa-solid fa-trash-can"></i></div>
+    `;
+    everyTasks.insertAdjacentHTML('beforeend', everyTask);
+    console.log(task);
+  });
+  tasks.appendChild(everyTasks);
 }
 
-document.body.appendChild(component());
+window.addEventListener('DOMContentLoaded', () => {
+  displayTasks();
+});
