@@ -29,7 +29,7 @@ const displayTasks = () => {
   const everyTasks = document.createElement('div');
   everyTasks.classList.add('tasksss');
   arrTasks.forEach((task) => {
-    const everyTask = `<div class="task"><input type="checkbox" class="taskCheck"><input type="text" class="taskInput" name="task" value="${task.description}"><i class="fa-solid fa-trash-can"></i></div>
+    const everyTask = `<div class="task"><input type="checkbox" class="taskCheck"><input type="text" class="taskInput" name="task" value="${task.description}"><i class="fa-solid fa-trash-can"></i><i class="fa-solid fa-ellipsis-vertical drop"></i></div>
     `;
     everyTasks.insertAdjacentHTML('beforeend', everyTask);
     console.log(task);
