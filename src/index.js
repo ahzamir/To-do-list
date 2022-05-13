@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import _ from 'lodash';// eslint-disable-line no-unused-vars
 import './style.css';
 
 const arrTasks = [
@@ -32,10 +32,9 @@ const displayTasks = () => {
     const everyTask = `<div class="task"><input type="checkbox" class="taskCheck"><input type="text" class="taskInput" name="task" value="${task.description}"><i class="fa-solid fa-trash-can"></i><i class="fa-solid fa-ellipsis-vertical drop"></i></div>
     `;
     everyTasks.insertAdjacentHTML('beforeend', everyTask);
-    console.log(task);
   });
   tasks.appendChild(everyTasks);
-}
+};
 
 window.addEventListener('DOMContentLoaded', () => {
   displayTasks();
