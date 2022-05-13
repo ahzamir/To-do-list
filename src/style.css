@@ -39,6 +39,10 @@ header h1 {
   height: 3.5rem;
 }
 
+input:focus {
+  outline: none;
+}
+
 .task:focus-within,
 .task:focus-within input {
   background-color: rgb(172, 247, 248);
@@ -57,11 +61,7 @@ header h1 {
   margin-left: 0.5rem;
 }
 
-input:focus {
-  outline: none;
-}
-
-.fa-trash-can{
+.fa-trash-can {
   display: none !important;
 }
 
