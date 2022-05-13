@@ -1,0 +1,74 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Fira sans', sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: rgb(220, 219, 219);
+  color: black;
+}
+
+header h1 {
+  font-size: 1rem;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.to-do-list {
+  background-color: rgb(237, 236, 236);
+  border: 1px solid gray;
+  width: 80%;
+}
+
+.container h2 {
+  font-size: 0.7rem;
+}
+
+.task {
+  width: 100%;
+  justify-content: center;
+  border-bottom: 1px solid gray;
+  font-size: 0.5rem;
+  color: gray;
+  height: 3.5rem;
+}
+
+input:focus {
+  outline: none;
+}
+
+.task:focus-within,
+.task:focus-within input {
+  background-color: rgb(172, 247, 248);
+}
+
+.taskCheck {
+  width: 7%;
+}
+
+.taskInput {
+  width: 85%;
+  border: none;
+  background: rgb(237, 236, 236);
+  height: 97%;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}
+
+.fa-trash-can {
+  display: none !important;
+}
+
+.task:focus-within .fa-trash-can {
+  display: inline !important;
+}
+
+.task:focus-within .drop {
+  display: none !important;
+}
