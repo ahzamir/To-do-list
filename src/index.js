@@ -3,32 +3,8 @@ import './style.css';
 import Task from './modules/lists.js';
 
 const tasksObject = new Task(JSON.parse(localStorage.getItem('tasks')));
-const removeTask = (event) => {
-  const eventId = event.target.id;
-  if (eventId.includes('remove')) {
-    const index = eventId.replace('remove', '');
-    tasksObject.remove(index);
-    creatNewTasks();
-  }
-}
-const editTask = (event) => {
-  const eventId = event.target.id;
-  const description = event.target.value;
-  if (eventId.includes('input')) {
-    const index = parseInt(eventId.replace('input', ''));
-    if (description !== tasksObject.arrTasks[index].description) {
-    tasksObject.edit(index, description);
-    creatNewTasks();
-    }
-  }
-}
-const addEventListenerToTasks = () => {
-  const taskDiv = document.getElementById('tasksDiv');
-  taskDiv.addEventListener('click', (e) => removeTask(e));
-  taskDiv.addEventListener('focusout', (e) => editTask(e));
-}
 const creatNewTasks = () => {
-  const arrTasks = tasksObject.arrTasks;
+  const { arrTasks } = tasksObject;
   arrTasks.sort((a, b) => a.index - b.index);
   const tasks = document.getElementById('tasks');
   tasks.innerHTML = '';
@@ -42,8 +18,33 @@ const creatNewTasks = () => {
   });
   tasks.appendChild(everyTasks);
   localStorage.setItem('tasks', JSON.stringify(arrTasks));
-  addEventListenerToTasks();
+  addEventListenerToTasks();// eslint-disable-line no-use-before-define
 };
+const removeTask = (event) => {
+  const eventId = event.target.id;
+  if (eventId.includes('remove')) {
+    const index = parseInt(eventId.replace('remove', ''), 10);
+    tasksObject.remove(index);
+    creatNewTasks();
+  }
+};
+const editTask = (event) => {
+  const eventId = event.target.id;
+  const description = event.target.value;
+  if (eventId.includes('input')) {
+    const index = parseInt(eventId.replace('input', ''), 10);
+    if (description !== tasksObject.arrTasks[index].description) {
+      tasksObject.edit(index, description);
+      creatNewTasks();
+    }
+  }
+};
+const addEventListenerToTasks = () => {
+  const taskDiv = document.getElementById('tasksDiv');
+  taskDiv.addEventListener('click', (e) => removeTask(e));
+  taskDiv.addEventListener('focusout', (e) => editTask(e));
+};
+
 const addNewTask = () => {
   const inputAdd = document.getElementById('inputAdd');
   tasksObject.add(inputAdd.value);
@@ -55,11 +56,11 @@ window.addEventListener('DOMContentLoaded', () => {
   const addPart = document.getElementById('addPart');
   const inputAdd = document.createElement('input');
   const addButton = document.createElement('i');
-  addButton.classList.add('fa-solid')
-  addButton.classList.add('fa-plus')
+  addButton.classList.add('fa-solid');
+  addButton.classList.add('fa-plus');
   inputAdd.setAttribute('type', 'text');
   inputAdd.setAttribute('placeholder', 'Add to your list...');
-  inputAdd.setAttribute('id', 'inputAdd')
+  inputAdd.setAttribute('id', 'inputAdd');
   addPart.appendChild(inputAdd);
   addPart.appendChild(addButton);
   creatNewTasks();
