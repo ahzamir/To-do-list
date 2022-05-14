@@ -1,7 +1,7 @@
 import _, { endsWith } from 'lodash';// eslint-disable-line no-unused-vars
 import './style.css';
 import Task from './modules/lists.js';
-import checkboxAction from './modules/interactivList';
+import checkboxAction from './modules/interactivList.js';// eslint-disable-line import/no-cycle
 
 const tasksObject = new Task(JSON.parse(localStorage.getItem('tasks')));
 const creatNewTasks = () => {
@@ -61,7 +61,7 @@ const changeCompletedStatusInObject = (index) => {
 const removeCompletedTasksAction = () => {
   tasksObject.removeCompletedTask();
   creatNewTasks();
-}
+};
 
 window.addEventListener('DOMContentLoaded', () => {
   const addPart = document.getElementById('addPart');
@@ -79,9 +79,9 @@ window.addEventListener('DOMContentLoaded', () => {
   const clearCompletedTasks = document.getElementById('deletCompleted');
   const clearCompletedTasksBtn = document.createElement('a');
   clearCompletedTasksBtn.innerText = 'Clear all completed';
-  clearCompletedTasksBtn.classList.add('completedTaskBtn')
+  clearCompletedTasksBtn.classList.add('completedTaskBtn');
   clearCompletedTasks.appendChild(clearCompletedTasksBtn);
   clearCompletedTasksBtn.addEventListener('click', () => removeCompletedTasksAction());
 });
 
-export { changeCompletedStatusInObject }
+export default changeCompletedStatusInObject;

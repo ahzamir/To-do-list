@@ -41,13 +41,14 @@ header h1 {
   border-bottom: 1px solid gray;
 }
 
-a:hover, i:hover {
-  color: blueviolet;
-  cursor: pointer;
-}
-
 i {
   font-size: 1rem;
+}
+
+a:hover,
+i:hover {
+  color: blueviolet;
+  cursor: pointer;
 }
 
 #inputAdd {
@@ -118,5 +119,5 @@ input:focus {
 }
 
 .completedTask {
-  text-decoration: line-through
-};
+  text-decoration: line-through;
+}
