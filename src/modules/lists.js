@@ -15,7 +15,7 @@ export default class Task {
 
   remove = (index) => {
     this.arrTasks = this.arrTasks.filter((task) => (task.index !== index));
-    for (let i = index; i < this.arrTasks.length; i + 1) {
+    for (let i = index; i < this.arrTasks.length; i += 1) {
       this.arrTasks[i].index -= 1;
     }
   }
