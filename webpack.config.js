@@ -24,6 +24,7 @@ module.exports = {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
   },
+  // type: 'module',
   // optimization: {
   //     runtimeChunk: 'single',
   // },

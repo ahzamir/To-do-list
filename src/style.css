@@ -15,9 +15,9 @@ body {
 }
 
 header h1 {
-  font-size: 1rem;
+  font-size: 2rem;
   text-align: center;
-  margin: 1rem 0;
+  margin: 2.5rem 0;
 }
 
 .to-do-list {
@@ -26,8 +26,32 @@ header h1 {
   width: 80%;
 }
 
+.to-do-list h2 {
+  padding: 2%;
+  color: gray;
+  font-size: 1.5rem;
+  border-bottom: 1px solid gray;
+}
+
 .container h2 {
   font-size: 0.7rem;
+}
+
+#addPart {
+  border-bottom: 1px solid gray;
+}
+
+i {
+  font-size: 1rem;
+}
+
+#inputAdd {
+  width: 93%;
+  height: 3rem;
+  font-size: 1rem;
+  background: rgb(237, 236, 236);
+  border: none;
+  padding: 2%;
 }
 
 .task {
@@ -62,11 +86,11 @@ input:focus {
 }
 
 .fa-trash-can {
-  display: none !important;
+  visibility: hidden !important;
 }
 
 .task:focus-within .fa-trash-can {
-  display: inline !important;
+  visibility: visible !important;
 }
 
 .task:focus-within .drop {
