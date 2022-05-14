@@ -41,6 +41,11 @@ header h1 {
   border-bottom: 1px solid gray;
 }
 
+a:hover, i:hover {
+  color: blueviolet;
+  cursor: pointer;
+}
+
 i {
   font-size: 1rem;
 }
@@ -96,3 +101,22 @@ input:focus {
 .task:focus-within .drop {
   display: none !important;
 }
+
+#deletCompleted {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+#deletCompleted:hover {
+  cursor: pointer;
+}
+
+.completedTaskBtn {
+  text-align: center;
+  padding: 1rem;
+}
+
+.completedTask {
+  text-decoration: line-through
+};
