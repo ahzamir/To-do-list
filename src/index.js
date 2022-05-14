@@ -1,6 +1,7 @@
 import _, { endsWith } from 'lodash';// eslint-disable-line no-unused-vars
 import './style.css';
 import Task from './modules/lists.js';
+import checkboxAction from './modules/interactivList';
 
 const tasksObject = new Task(JSON.parse(localStorage.getItem('tasks')));
 const creatNewTasks = () => {
@@ -12,7 +13,7 @@ const creatNewTasks = () => {
   everyTasks.setAttribute('id', 'tasksDiv');
   everyTasks.classList.add('tasks');
   arrTasks.forEach((task) => {
-    const everyTask = `<div class="task"><input type="checkbox" class="taskCheck"><input id="input${task.index}" type="text" class="taskInput" name="task" value="${task.description}"><a id="remove${task.index}"><i class="fa-solid fa-trash-can"></i></a><i class="fa-solid fa-ellipsis-vertical drop"></i></div>
+    const everyTask = `<div class="task"><input type="checkbox" class="taskCheck" id="check${task.index}" ${task.completed ? 'checked' : ''}><input id="input${task.index}" type="text" class="taskInput ${task.completed ? 'completedTask' : ''}" name="task" value="${task.description}"><a id="remove${task.index}"><i class="fa-solid fa-trash-can"></i></a><i class="fa-solid fa-ellipsis-vertical drop"></i></div>
     `;
     everyTasks.insertAdjacentHTML('beforeend', everyTask);
   });
@@ -43,6 +44,7 @@ const addEventListenerToTasks = () => {
   const taskDiv = document.getElementById('tasksDiv');
   taskDiv.addEventListener('click', (e) => removeTask(e));
   taskDiv.addEventListener('focusout', (e) => editTask(e));
+  checkboxAction();
 };
 
 const addNewTask = () => {
@@ -51,6 +53,15 @@ const addNewTask = () => {
   creatNewTasks();
   inputAdd.value = '';
 };
+
+const changeCompletedStatusInObject = (index) => {
+  tasksObject.changeCompletedStatus(index);
+  creatNewTasks();
+};
+const removeCompletedTasksAction = () => {
+  tasksObject.removeCompletedTask();
+  creatNewTasks();
+}
 
 window.addEventListener('DOMContentLoaded', () => {
   const addPart = document.getElementById('addPart');
@@ -65,4 +76,12 @@ window.addEventListener('DOMContentLoaded', () => {
   addPart.appendChild(addButton);
   creatNewTasks();
   addButton.addEventListener('click', () => addNewTask());
+  const clearCompletedTasks = document.getElementById('deletCompleted');
+  const clearCompletedTasksBtn = document.createElement('a');
+  clearCompletedTasksBtn.innerText = 'Clear all completed';
+  clearCompletedTasksBtn.classList.add('completedTaskBtn')
+  clearCompletedTasks.appendChild(clearCompletedTasksBtn);
+  clearCompletedTasksBtn.addEventListener('click', () => removeCompletedTasksAction());
 });
+
+export { changeCompletedStatusInObject }
