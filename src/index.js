@@ -1,20 +1,31 @@
-import _ from 'lodash';// eslint-disable-line no-unused-vars
+import _, { endsWith } from 'lodash';// eslint-disable-line no-unused-vars
 import './style.css';
 import Task from './modules/lists.js';
 
 const tasksObject = new Task(JSON.parse(localStorage.getItem('tasks')));
 const removeTask = (event) => {
   const eventId = event.target.id;
-  console.log(event.target)
   if (eventId.includes('remove')) {
     const index = eventId.replace('remove', '');
     tasksObject.remove(index);
     creatNewTasks();
   }
 }
+const editTask = (event) => {
+  const eventId = event.target.id;
+  const description = event.target.value;
+  if (eventId.includes('input')) {
+    const index = parseInt(eventId.replace('input', ''));
+    if (description !== tasksObject.arrTasks[index].description) {
+    tasksObject.edit(index, description);
+    creatNewTasks();
+    }
+  }
+}
 const addEventListenerToTasks = () => {
   const taskDiv = document.getElementById('tasksDiv');
   taskDiv.addEventListener('click', (e) => removeTask(e));
+  taskDiv.addEventListener('focusout', (e) => editTask(e));
 }
 const creatNewTasks = () => {
   const arrTasks = tasksObject.arrTasks;
@@ -25,7 +36,7 @@ const creatNewTasks = () => {
   everyTasks.setAttribute('id', 'tasksDiv');
   everyTasks.classList.add('tasks');
   arrTasks.forEach((task) => {
-    const everyTask = `<div class="task"><input type="checkbox" class="taskCheck"><input type="text" class="taskInput" name="task" value="${task.description}"><a id="remove${task.index}"><i class="fa-solid fa-trash-can"></i></a><i class="fa-solid fa-ellipsis-vertical drop"></i></div>
+    const everyTask = `<div class="task"><input type="checkbox" class="taskCheck"><input id="input${task.index}" type="text" class="taskInput" name="task" value="${task.description}"><a id="remove${task.index}"><i class="fa-solid fa-trash-can"></i></a><i class="fa-solid fa-ellipsis-vertical drop"></i></div>
     `;
     everyTasks.insertAdjacentHTML('beforeend', everyTask);
   });

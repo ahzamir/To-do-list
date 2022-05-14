@@ -18,13 +18,11 @@ export default class Task {
       return (task.index != index);
     });
     for (var i = index; i < this.arrTasks.length; i++) {
-        this.arrTasks[i].index= this.arrTasks[i].index-1;
+      this.arrTasks[i].index = this.arrTasks[i].index - 1;
     }
   }
 
-  // edit = () => {
-    
-  // }
-
-  // getAll = () => this.arrTasks;
+  edit = (index, description) => {
+    this.arrTasks[index].description = description;
+  }
 }
