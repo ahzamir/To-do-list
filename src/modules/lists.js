@@ -1,15 +1,11 @@
 export default class Task {
   constructor(arrTasks) {
-    this.arrTasks = arrTasks || [{
-      description: 'ahmad',
-      completed: false,
-      index: 1,
-    }];
+    this.arrTasks = arrTasks || [];
   }
 
   add = (description) => {
     const completed = false;
-    const index = this.arrTasks.lenght;
+    const index = this.arrTasks.length;
     this.arrTasks.push({
       description,
       completed,
@@ -17,12 +13,14 @@ export default class Task {
     });
   }
 
-  // remove = () => {
-  //   this.arrTasks = this.arrTasks.filter((task) => {
-  //     const newIndexFromArray = task.index;
-  //     return (newIndexFromArray !== index);
-  //   });
-  // }
+  remove = (index) => {
+    this.arrTasks = this.arrTasks.filter((task) => {
+      return (task.index != index);
+    });
+    for (var i = index; i < this.arrTasks.length; i++) {
+        this.arrTasks[i].index= this.arrTasks[i].index-1;
+    }
+  }
 
   // edit = () => {
     
