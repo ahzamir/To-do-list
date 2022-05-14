@@ -30,6 +30,14 @@ header h1 {
   font-size: 0.7rem;
 }
 
+#inputAdd {
+  width: 90%;
+  height: 2rem;
+  background: rgb(237, 236, 236);
+  border: none;
+  padding: 2%;
+}
+
 .task {
   width: 100%;
   justify-content: center;
