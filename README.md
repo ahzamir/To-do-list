@@ -7,7 +7,7 @@
 
 ## 🖥️ Live Demo
 
-[To Do List](https://ahzamir.github.io/Awessom-books-with-ES6/)
+[To Do List](https://ahzamir.github.io/To-do-list/)
 
 ## Built With
 
