@@ -23,4 +23,12 @@ export default class Task {
   edit = (index, description) => {
     this.arrTasks[index].description = description;
   }
+
+  changeCompletedStatus = (index) => {
+    this.arrTasks[index].completed = !this.arrTasks[index].completed;
+  }
+
+  removeCompletedTask = () => {
+    this.arrTasks = this.arrTasks.filter((task) => (task.completed === false));
+  }
 }

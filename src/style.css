@@ -45,6 +45,12 @@ i {
   font-size: 1rem;
 }
 
+a:hover,
+i:hover {
+  color: blueviolet;
+  cursor: pointer;
+}
+
 #inputAdd {
   width: 93%;
   height: 3rem;
@@ -95,4 +101,23 @@ input:focus {
 
 .task:focus-within .drop {
   display: none !important;
+}
+
+#deletCompleted {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+#deletCompleted:hover {
+  cursor: pointer;
+}
+
+.completedTaskBtn {
+  text-align: center;
+  padding: 1rem;
+}
+
+.completedTask {
+  text-decoration: line-through;
 }
