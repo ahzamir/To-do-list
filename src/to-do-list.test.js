@@ -12,9 +12,9 @@ describe('Task function', () => {
     expect(tasksObject.arrTasks[0].description).toBe('task 0');
     expect(tasksObject.arrTasks.length).toBe(5);
   });
-  
+
   test('Remove function', () => {
-    tasksObject.remove(1)
+    tasksObject.remove(1);
     expect(tasksObject.arrTasks[1].description).toBe('task 2');
   });
 
@@ -22,5 +22,5 @@ describe('Task function', () => {
     tasksObject.edit(1, 'task 1');
     expect(tasksObject.arrTasks[1].description).toBe('task 1');
     expect(tasksObject.arrTasks.length).toBe(4);
-  })
+  });
 });
