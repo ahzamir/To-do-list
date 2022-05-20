@@ -1,7 +1,8 @@
 import Task from './modules/lists.js';
+// import { setLocalStorage, getLocalStorage } from './modules/localStorage.js';
 
+const tasksObject = new Task();
 describe('Task function', () => {
-  const tasksObject = new Task();
   tasksObject.add('task 0');
   tasksObject.add('task 1');
   tasksObject.add('task 2');
@@ -18,9 +19,11 @@ describe('Task function', () => {
     expect(tasksObject.arrTasks[1].description).toBe('task 2');
   });
 
+
   test('Edit function', () => {
     tasksObject.edit(1, 'task 1');
     expect(tasksObject.arrTasks[1].description).toBe('task 1');
     expect(tasksObject.arrTasks.length).toBe(4);
   });
+
 });
