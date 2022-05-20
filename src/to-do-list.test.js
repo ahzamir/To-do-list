@@ -24,7 +24,7 @@ describe('Task function', () => {
   test('Remove function', () => {
     tasksObject.remove(6);
     expect(tasksObject.arrTasks[6].description).toBe('task 7');
-    expect(tasksObject.arrTasks.length).toBe(8)
+    expect(tasksObject.arrTasks.length).toBe(8);
   });
 
   test('Edit function', () => {
@@ -36,9 +36,8 @@ describe('Task function', () => {
   });
 
   test('Remove all completed tasks', () => {
-    tasksObject.removeCompletedTask ();
+    tasksObject.removeCompletedTask();
     expect(tasksObject.arrTasks[2].description).toBe('task 3');
     expect(tasksObject.arrTasks.length).toBe(5);
-});
-
+  });
 });

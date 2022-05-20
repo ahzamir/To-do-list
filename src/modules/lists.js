@@ -30,7 +30,7 @@ export default class Task {
 
   removeCompletedTask = () => {
     this.arrTasks = this.arrTasks.filter((task) => (task.completed === false));
-    for (let i = 0; i < this.arrTasks.length; i++) {
+    for (let i = 0; i < this.arrTasks.length; i += 1) {
       this.arrTasks[i].index = i;
     }
   }
