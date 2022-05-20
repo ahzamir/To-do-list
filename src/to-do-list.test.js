@@ -19,9 +19,4 @@ describe('Task function', () => {
     expect(tasksObject.arrTasks[1].description).toBe('task 2');
     expect(tasksObject.arrTasks.length).toBe(4);
   });
-
-  test('Edit function', () => {
-    tasksObject.edit(1, 'task 1');
-    expect(tasksObject.arrTasks[1].description).toBe('task 1');
-  });
 });
