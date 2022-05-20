@@ -7,12 +7,13 @@ describe('Task function', () => {
   tasksObject.add('task 2');
   tasksObject.add('task 3');
   tasksObject.add('task 4');
+  const taskTest = 'Testing task'
 
   test('Add function', () => {
     expect(tasksObject.arrTasks[0].description).toBe('task 0');
     expect(tasksObject.arrTasks.length).toBe(5);
   });
-
+  test()
   test('Remove function', () => {
     tasksObject.remove(1);
     expect(tasksObject.arrTasks[1].description).toBe('task 2');
