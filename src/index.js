@@ -2,8 +2,9 @@ import _, { endsWith } from 'lodash';// eslint-disable-line no-unused-vars
 import './style.css';
 import Task from './modules/lists.js';
 import checkboxAction from './modules/interactivList.js';// eslint-disable-line import/no-cycle
+import { setLocalStorage, getLocalStorage } from './modules/localStorage.js';
 
-const tasksObject = new Task(JSON.parse(localStorage.getItem('tasks')));
+const tasksObject = new Task(getLocalStorage());
 const creatNewTasks = () => {
   const { arrTasks } = tasksObject;
   arrTasks.sort((a, b) => a.index - b.index);
@@ -18,7 +19,7 @@ const creatNewTasks = () => {
     everyTasks.insertAdjacentHTML('beforeend', everyTask);
   });
   tasks.appendChild(everyTasks);
-  localStorage.setItem('tasks', JSON.stringify(arrTasks));
+  setLocalStorage(arrTasks);
   addEventListenerToTasks();// eslint-disable-line no-use-before-define
 };
 const removeTask = (event) => {
