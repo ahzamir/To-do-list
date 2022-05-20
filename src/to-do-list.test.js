@@ -1,4 +1,10 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import Task from './modules/lists.js';
+
+document.body.innerHTML = '<div class="task"></div>';
 
 const tasksObject = new Task();
 describe('Task function', () => {
