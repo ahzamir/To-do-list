@@ -35,4 +35,10 @@ describe('Task function', () => {
     expect(tasksObject.arrTasks.length).toBe(8);
   });
 
+  test('Remove all completed tasks', () => {
+    tasksObject.removeCompletedTask ();
+    expect(tasksObject.arrTasks[2].description).toBe('task 3');
+    expect(tasksObject.arrTasks.length).toBe(5);
+});
+
 });
