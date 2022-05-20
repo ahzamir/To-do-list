@@ -37,6 +37,8 @@ Clone the repositry and open the index.html which is in the folder.
 
 
 ## 🤝 Contributing
+- GitHub: [@Richez003](https://github.com/Richez003)
+- Twitter: [@richardfriday14](https://twitter.com/richardfriday14)
 
 Contributions, issues, and feature requests are welcome!
 
