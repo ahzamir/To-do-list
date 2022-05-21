@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1653083368662" clover="3.2.0">
-  <project timestamp="1653083368663" name="All files">
+<coverage generated="1653123608142" clover="3.2.0">
+  <project timestamp="1653123608142" name="All files">
     <metrics statements="17" coveredstatements="16" conditionals="2" coveredconditionals="2" methods="8" coveredmethods="7" elements="27" coveredelements="25" complexity="0" loc="17" ncloc="17" packages="1" files="1" classes="1"/>
-    <file name="lists.js" path="C:\Users\FREDDY\Documents\projects\To-do-list\src\modules\lists.js">
+    <file name="lists.js" path="D:\Microverse Ahmad Zamir Yousufi\Projects\project to do\To-do-list\src\modules\lists.js">
       <metrics statements="17" coveredstatements="16" conditionals="2" coveredconditionals="2" methods="8" coveredmethods="7"/>
       <line num="3" count="1" type="cond" truecount="2" falsecount="0"/>
       <line num="6" count="1" type="stmt"/>
